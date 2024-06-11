@@ -1,9 +1,10 @@
 ls
 pwd
+scp target/*.jar ubuntu@10.0.47.224:/home/ubuntu
 ssh ubuntu@10.0.47.224 
-  scp workspace/subtitle-downloader/target/*.jar ubuntu@10.0.47.224:/home/ubuntu <<EOF
-  sudo rm -rf /home/ubuntu/opt/tomcat/webapps/*.jar
-  sudo mv subtitledownloader-1.0-SNAPSHOT.jar /opt/tomcat/webapps
+<<EOF
+  sudo rm -rf /opt/tomcat/webapps/*.jar
+  sudo mv /home/ubuntu/*.jar /opt/tomcat/webapps/
   sudo systemctl restart tomcat
   exit
 EOF

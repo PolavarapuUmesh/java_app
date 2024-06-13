@@ -1,0 +1,6 @@
+pwd
+ls
+tar -czf subtitle-downloader.tar.gz appspec.yaml scripts/ test.jar
+aws s3 ls
+aws s3 cp subtitle-downloader.tar.gz s3://s3-subtitle-downloader-test/ --region us-east-2
+echo "successfully uploaded to s3"

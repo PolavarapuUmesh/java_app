@@ -1,0 +1,20 @@
+version: 0.0
+os: linux
+files:
+  - source: /
+    destination: java_app/subtitle-downloader
+
+hooks:
+  AfterInstall:
+    - location: java_app/subtitle-downloader/start_server.sh
+      timeout: 900
+      runas: root
+  ApplicationStop:
+    - location: java_app/subtitle-downloader/stop_server.sh
+      timeout: 300  
+      runas: root
+  ApplicationStart:
+    - location: java_app/subtitle-downloader/verify_service.sh
+      timeout: 300
+      runas: root
+
